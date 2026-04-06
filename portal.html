@@ -369,11 +369,19 @@ function loadReports(filter){
         ?r.files.map(function(f){return '<a class="rpt-file-link" href="'+f.url+'" target="_blank" rel="noopener">&#128196; '+f.name+'</a>';}).join('')
         :'<span style="font-size:10px;color:var(--muted2)">No files attached</span>';
       var item=document.createElement('div');item.className='rpt-item';
-      item.innerHTML='<span class="rpt-dept">'+(DEPT_LABELS[r.dept]||r.dept)+'</span><div class="rpt-title">'+r.title+'</div><span class="rpt-meta">Submitted by '+r.submittedBy+' &middot; '+date+'</span>'+(r.desc?'<div style="font-size:11px;color:var(--muted);margin-top:6px;font-style:italic">'+r.desc+'</div>':'')+'<div class="rpt-files" style="margin-top:12px">'+filesHtml+'</div>';
-      grid.appendChild(item);
+item.innerHTML='<div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="flex:1"><span class="rpt-dept">'+(DEPT_LABELS[r.dept]||r.dept)+'</span><div class="rpt-title">'+r.title+'</div><span class="rpt-meta">Submitted by '+r.submittedBy+' &middot; '+date+'</span>'+(r.desc?'<div style="font-size:11px;color:var(--muted);margin-top:6px;font-style:italic">'+r.desc+'</div>':'')+'<div class="rpt-files" style="margin-top:12px">'+filesHtml+'</div></div><button class="rpt-delete" data-id="'+r.id+'" style="background:none;border:none;color:var(--muted2);font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;transition:color .2s;flex-shrink:0;margin-left:20px">Delete</button></div>';      grid.appendChild(item);
     });
   }).catch(function(e){grid.innerHTML='<div class="rpt-empty">Error: '+e.message+'</div>';});
 }
+  document.addEventListener('click', function(e) {
+  if(e.target.classList.contains('rpt-delete')) {
+    if(!confirm('Are you sure you want to delete this report? This cannot be undone.')) return;
+    var id = e.target.getAttribute('data-id');
+    db.collection('reports').doc(id).delete().then(function() {
+      loadReports();
+    }).catch(function(e) { alert('Error deleting: ' + e.message); });
+  }
+});
 </script>
 </body>
 </html>
