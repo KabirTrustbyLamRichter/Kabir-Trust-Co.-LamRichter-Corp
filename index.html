@@ -662,11 +662,10 @@ wire('btn-signin', function() {
     console.log("Logged in:", userCredential.user);
     window.location.href = "portal.html";
   })
-  .catch(function(e) {
-    err.textContent = e.code==='auth/invalid-credential'||e.code==='auth/wrong-password'||e.code==='auth/user-not-found'
-      ? 'Incorrect email or password.' : e.message;
-    err.style.display='block';
-  });
+.catch(function(e) {
+  console.error("FULL ERROR:", e);
+  alert(e.message);
+});
 });
 document.getElementById('si-email').addEventListener('keydown', function(e){ if(e.key==='Enter') document.getElementById('btn-signin').click(); });
 document.getElementById('si-pass').addEventListener('keydown',  function(e){ if(e.key==='Enter') document.getElementById('btn-signin').click(); });
