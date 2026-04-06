@@ -657,7 +657,12 @@ wire('btn-signin', function() {
   var err   = document.getElementById('si-err');
   err.style.display='none';
   if(!email || !pass) { err.textContent='Please enter your email and password.'; err.style.display='block'; return; }
-  auth.signInWithEmailAndPassword(email, pass).catch(function(e) {
+  firebase.auth().signInWithEmailAndPassword(email, pass)
+  .then(function(userCredential) {
+    console.log("Logged in:", userCredential.user);
+    window.location.href = "portal.html";
+  })
+  .catch(function(e) {
     err.textContent = e.code==='auth/invalid-credential'||e.code==='auth/wrong-password'||e.code==='auth/user-not-found'
       ? 'Incorrect email or password.' : e.message;
     err.style.display='block';
