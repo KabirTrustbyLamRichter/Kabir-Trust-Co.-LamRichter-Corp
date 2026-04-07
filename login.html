@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Staff Login — Lam Richter Corp.</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Syncopate:wght@400;700&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;cursor:none!important}
+:root{
+  --bg:#fff;--border:#d0dcea;
+  --teal:#0a5c6e;--teal-dark:#074554;--teal-light:#1a8a9e;--teal-pale:#e6f5f7;
+  --text:#0d1f3c;--muted:#5a6e8a;--muted2:#8fa3bc;
+  --fd:'Playfair Display',serif;--fs:'Jost',sans-serif;--fh:'Syncopate',sans-serif;
+}
+html,body{height:100%;margin:0}
+body{background:var(--teal-dark);font-family:var(--fs);font-weight:300;display:flex;align-items:center;justify-content:center;min-height:100vh;position:relative;overflow:hidden}
+
+#cur{position:fixed;width:10px;height:10px;background:#fff;border-radius:50%;pointer-events:none;z-index:2147483647;transform:translate(-50%,-50%);transition:width .2s,height .2s;left:-100px;top:-100px}
+#cur-ring{position:fixed;width:34px;height:34px;border:1.5px solid rgba(255,255,255,.5);border-radius:50%;pointer-events:none;z-index:2147483646;transform:translate(-50%,-50%);opacity:.4;left:-100px;top:-100px}
+
+.bg-letter{position:absolute;font-family:var(--fd);font-size:60vw;font-weight:400;font-style:italic;color:rgba(255,255,255,.03);pointer-events:none;user-select:none;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
+
+.login-box{background:#fff;padding:72px 72px;width:90%;max-width:900px;position:relative;z-index:2}
+.login-logo{font-family:var(--fh);font-size:10px;letter-spacing:3px;color:var(--teal);display:block;margin-bottom:8px}
+.login-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);display:block;margin-bottom:44px}
+.login-toggle{display:flex;gap:0;margin-bottom:36px;border:1px solid var(--border)}
+.login-toggle button{flex:1;padding:10px;font-family:var(--fs);font-size:10px;letter-spacing:2px;text-transform:uppercase;background:none;border:none;color:var(--muted);transition:all .2s}
+.login-toggle button.active{background:var(--teal);color:#fff}
+.login-title{font-family:var(--fd);font-size:36px;font-weight:400;color:var(--text);margin-bottom:28px;line-height:1.2}
+.login-title em{font-style:italic;color:var(--teal)}
+.login-field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.login-field label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.login-field input{border:1px solid var(--border);padding:15px 18px;font-family:var(--fs);font-size:13px;color:var(--text);outline:none;transition:border-color .2s;background:#fff;width:100%}
+.login-field input:focus{border-color:var(--teal)}
+.login-field input::placeholder{color:var(--muted2)}
+.login-btn{width:100%;background:var(--teal);color:#fff;border:none;padding:16px;font-family:var(--fs);font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-top:8px;transition:opacity .2s}
+.login-btn:hover{opacity:.85}
+.login-err{font-size:11px;color:#c0392b;margin-top:12px;display:none;letter-spacing:.5px;line-height:1.6}
+.login-ok{font-size:11px;color:var(--teal);margin-top:12px;display:none;letter-spacing:.5px;line-height:1.6}
+.login-hint{font-size:10px;color:var(--muted2);margin-top:16px;line-height:1.7;text-align:center}
+.login-hint a{color:var(--teal);text-decoration:none}
+.login-back{background:none;border:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:24px;padding-top:20px;border-top:1px solid var(--border);width:100%;transition:color .2s;display:block;text-align:center}
+.login-back:hover{color:var(--teal)}
+body.loading{pointer-events:none}
+</style>
+</head>
+<body class="loading">
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div class="bg-letter">LR</div>
+
+<div class="login-box">
+  <span class="login-logo">Lam Richter Corp.</span>
+  <span class="login-sub">Staff Portal &middot; Secure Access</span>
+
+  <div class="login-toggle">
+    <button class="active" id="tab-signin">Sign In</button>
+    <button id="tab-register">Create Account</button>
+  </div>
+
+  <!-- SIGN IN -->
+  <div id="form-signin">
+    <h2 class="login-title">Welcome<br/><em>back.</em></h2>
+    <div class="login-field"><label>Email</label><input type="email" id="si-email" placeholder="mitchell.richter"/></div>
+    <div class="login-field"><label>Password</label><input type="password" id="si-pass" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"/></div>
+    <button class="login-btn" id="btn-signin">Sign In</button>
+    <div class="login-err" id="si-err"></div>
+    <div class="login-hint"><a href="#" id="btn-forgot">Forgot your password?</a></div>
+  </div>
+
+  <!-- REGISTER -->
+  <div id="form-register" style="display:none">
+    <h2 class="login-title">Create your<br/><em>account.</em></h2>
+    <div class="login-field"><label>Full Name</label><input type="text" id="reg-name" placeholder="Your full name"/></div>
+    <div class="login-field"><label>Email</label><input type="email" id="reg-email" placeholder="mitchell.richter"/></div>
+    <div class="login-field"><label>Password</label><input type="password" id="reg-pass" placeholder="Min. 8 characters"/></div>
+    <div class="login-field"><label>Confirm Password</label><input type="password" id="reg-pass2" placeholder="Repeat password"/></div>
+    <button class="login-btn" id="btn-register">Create Account</button>
+    <div class="login-err" id="reg-err"></div>
+    <div class="login-ok" id="reg-ok"></div>
+    <div class="login-hint">Only @lamrichter.com email addresses are permitted.</div>
+  </div>
+
+  <button class="login-back" id="btn-back">&#8592; Back to Site</button>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+var firebaseConfig = {
+  apiKey: "AIzaSyAs7jD8UqkGjkmCxe0mze1_CCH86OUQyfs",
+  authDomain: "lam-richter-portal.firebaseapp.com",
+  projectId: "lam-richter-portal",
+  storageBucket: "lam-richter-portal.firebasestorage.app",
+  messagingSenderId: "568935897589",
+  appId: "1:568935897589:web:55e57e333ec6fd89dd28bc"
+};
+firebase.initializeApp(firebaseConfig);
+var auth = firebase.auth();
+
+// CURSOR
+var dot=document.getElementById('cur'), ring=document.getElementById('cur-ring');
+var mx=-100,my=-100,rx=-100,ry=-100;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+
+// If already logged in go straight to portal
+auth.onAuthStateChanged(function(user){
+  if(user) window.location.href='portal.html';
+});
+
+// TABS
+document.getElementById('tab-signin').addEventListener('click',function(){
+  this.classList.add('active');
+  document.getElementById('tab-register').classList.remove('active');
+  document.getElementById('form-signin').style.display='';
+  document.getElementById('form-register').style.display='none';
+});
+document.getElementById('tab-register').addEventListener('click',function(){
+  this.classList.add('active');
+  document.getElementById('tab-signin').classList.remove('active');
+  document.getElementById('form-register').style.display='';
+  document.getElementById('form-signin').style.display='none';
+});
+
+// SIGN IN
+document.getElementById('btn-signin').addEventListener('click',function(){
+  var email=document.getElementById('si-email').value.trim();
+  var pass=document.getElementById('si-pass').value;
+  var err=document.getElementById('si-err');
+  err.style.display='none';
+  if(!email||!pass){err.textContent='Please enter your email and password.';err.style.display='block';return;}
+  auth.signInWithEmailAndPassword(email,pass).then(function(){
+    window.location.href='portal.html';
+  }).catch(function(e){
+    err.textContent=e.code==='auth/invalid-credential'||e.code==='auth/wrong-password'||e.code==='auth/user-not-found'?'Incorrect email or password.':e.message;
+    err.style.display='block';
+  });
+});
+document.getElementById('si-email').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('btn-signin').click();});
+document.getElementById('si-pass').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('btn-signin').click();});
+
+// REGISTER
+document.getElementById('btn-register').addEventListener('click',function(){
+  var name=document.getElementById('reg-name').value.trim();
+  var email=document.getElementById('reg-email').value.trim();
+  var pass=document.getElementById('reg-pass').value;
+  var pass2=document.getElementById('reg-pass2').value;
+  var err=document.getElementById('reg-err');
+  var ok=document.getElementById('reg-ok');
+  err.style.display='none';ok.style.display='none';
+  if(!email.endsWith('@lamrichter.com')){err.textContent='Only @lamrichter.com email addresses are permitted.';err.style.display='block';return;}
+  if(pass!==pass2){err.textContent='Passwords do not match.';err.style.display='block';return;}
+  if(pass.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return;}
+  auth.createUserWithEmailAndPassword(email,pass).then(function(cred){
+    return cred.user.updateProfile({displayName:name});
+  }).then(function(){
+    window.location.href='portal.html';
+  }).catch(function(e){
+    err.textContent=e.code==='auth/email-already-in-use'?'An account with this email already exists.':e.message;
+    err.style.display='block';
+  });
+});
+
+// FORGOT PASSWORD
+document.getElementById('btn-forgot').addEventListener('click',function(e){
+  e.preventDefault();
+  var email=document.getElementById('si-email').value.trim();
+  var err=document.getElementById('si-err');
+  if(!email){err.textContent='Enter your email address above first.';err.style.display='block';return;}
+  auth.sendPasswordResetEmail(email).then(function(){
+    err.style.display='none';
+    var ok=document.createElement('div');ok.className='login-ok';ok.style.display='block';
+    ok.textContent='Password reset email sent. Check your inbox.';
+    document.getElementById('btn-forgot').parentElement.after(ok);
+  }).catch(function(e){err.textContent=e.message;err.style.display='block';});
+});
+
+// BACK TO SITE
+document.getElementById('btn-back').addEventListener('click',function(){
+  window.location.href='index.html';
+});
+
+// Remove loading state once page is fully loaded
+window.addEventListener('load',function(){
+  document.body.classList.remove('loading');
+});
+</script>
+</body>
+</html>
