@@ -104,32 +104,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 
 @keyframes splashIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* ENTRY SPLASH */
+/* ENTRY SPLASH — Scales of Justice */
 #pp-splash{position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;transition:opacity .65s ease}
 #pp-splash.gone{opacity:0;pointer-events:none}
-#pp-emblem{width:min(220px,34vw);height:auto;overflow:visible;display:block}
-.lp-leaf{opacity:0;transform-box:fill-box;transform-origin:center;animation:lpLeafIn .32s ease-out forwards}
-#lp-vine{opacity:0;animation:lpFadeIn .4s ease-out .0s forwards}
-#lp-sword-pommel-top,#lp-sword-pommel-ball{opacity:0;animation:lpFadeIn .3s ease-out .48s forwards}
-#lp-sword-guard{opacity:0;animation:lpFadeIn .3s ease-out .56s forwards}
-#lp-sword-grip{stroke-dasharray:37;stroke-dashoffset:37;opacity:0;animation:lpDashIn .45s ease-out .58s forwards}
-#lp-sword-blade{stroke-dasharray:234;stroke-dashoffset:234;opacity:0;animation:lpDashIn .75s cubic-bezier(.15,.9,.35,1.05) .65s forwards}
-#lp-sword-tip{opacity:0;animation:lpFadeIn .25s ease-out 1.12s forwards}
-#lp-support{opacity:0;animation:lpFadeIn .2s ease-out 1.05s forwards}
-#lp-pivot{opacity:0;animation:lpFadeIn .2s ease-out 1.12s forwards}
-#lp-beam{stroke-dasharray:114;stroke-dashoffset:114;opacity:0;animation:lpDashIn .5s ease-out 1.18s forwards}
-#lp-chains{opacity:0;animation:lpFadeIn .35s ease-out 1.46s forwards}
-#lp-pan-l{opacity:0;transform:translateY(-8px);animation:lpPanDrop .38s ease-out 1.58s forwards}
-#lp-pan-r{opacity:0;transform:translateY(-8px);animation:lpPanDrop .38s ease-out 1.66s forwards}
-#lp-ties{opacity:0;animation:lpFadeIn .4s ease-out .75s forwards}
-#pp-capline{display:block;width:1px;height:26px;background:linear-gradient(to bottom,transparent,#d0dcea,transparent);margin:20px auto 0;opacity:0;animation:lpFadeIn .35s ease-out 1.82s forwards}
-#pp-cap{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#0a5c6e;opacity:0;transform:translateY(8px);animation:lpFadeUp .5s ease-out 1.9s forwards;text-align:center;margin-top:10px;letter-spacing:.3px}
-#pp-sub{font-family:'Syncopate',sans-serif;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#8fa3bc;opacity:0;transform:translateY(6px);animation:lpFadeUp .5s ease-out 2.05s forwards;text-align:center;margin-top:6px}
-@keyframes lpLeafIn{from{opacity:0;transform:scale(.12)}to{opacity:1;transform:scale(1)}}
-@keyframes lpFadeIn{to{opacity:1}}
-@keyframes lpDashIn{to{opacity:1;stroke-dashoffset:0}}
-@keyframes lpPanDrop{to{opacity:1;transform:translateY(0)}}
-@keyframes lpFadeUp{to{opacity:1;transform:translateY(0)}}
+#pp-emblem{width:min(280px,44vw);height:auto;display:block}
+#sj-finial{opacity:0;animation:sjFade .25s ease-out 0s forwards}
+#sj-pole{stroke-dasharray:30;stroke-dashoffset:30;opacity:0;animation:sjDash .35s ease-out .2s forwards}
+#sj-pivot{stroke-dasharray:52;stroke-dashoffset:52;opacity:0;animation:sjDash .35s ease-out .48s forwards}
+#sj-balance{opacity:0;transform-origin:160px 50px;animation:sjFade .4s ease-out .78s forwards,sjSettle 1.8s cubic-bezier(.2,.82,.32,1) 1.3s both}
+#pp-capline{display:block;width:1px;height:24px;background:linear-gradient(to bottom,transparent,#d0dcea,transparent);margin:22px auto 0;opacity:0;animation:sjFade .35s ease-out 1.7s forwards}
+#pp-cap{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#0a5c6e;opacity:0;transform:translateY(8px);animation:sjUp .5s ease-out 1.8s forwards;text-align:center;margin-top:10px;letter-spacing:.3px}
+#pp-sub{font-family:'Syncopate',sans-serif;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#8fa3bc;opacity:0;transform:translateY(6px);animation:sjUp .5s ease-out 1.95s forwards;text-align:center;margin-top:6px}
+@keyframes sjDash{to{opacity:1;stroke-dashoffset:0}}
+@keyframes sjFade{to{opacity:1}}
+@keyframes sjUp{to{opacity:1;transform:translateY(0)}}
+@keyframes sjSettle{0%{transform:rotate(-6deg)}52%{transform:rotate(3deg)}100%{transform:rotate(0deg)}}
 @media(prefers-reduced-motion:reduce){
   #pp-splash *{animation-duration:.01ms!important;animation-delay:0ms!important}
   #pp-splash{transition:opacity .15s}
@@ -152,70 +141,38 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 
 <!-- ENTRY SPLASH -->
 <div id="pp-splash">
-  <svg id="pp-emblem" viewBox="0 25 400 365" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg id="pp-emblem" viewBox="0 0 320 195" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-    <!-- Faint vine ring behind leaves -->
-    <circle id="lp-vine" cx="200" cy="200" r="133" stroke="#0a5c6e" stroke-width="1.5" opacity=".12"/>
+    <!-- Top finial triangle -->
+    <path id="sj-finial" d="M 155,12 L 160,4 L 165,12 Z" fill="#0a5c6e"/>
 
-    <!-- SWORD (behind everything) -->
-    <g>
-      <path id="lp-sword-pommel-top" d="M 193,52 Q 200,38 207,52 L 207,58 L 193,58 Z" fill="#0a5c6e"/>
-      <circle id="lp-sword-pommel-ball" cx="200" cy="72" r="11" stroke="#0a5c6e" stroke-width="2.5"/>
-      <line id="lp-sword-grip" x1="200" y1="83" x2="200" y2="120" stroke="#0a5c6e" stroke-width="6" stroke-linecap="round"/>
-      <path id="lp-sword-guard" d="M 165,120 C 178,112 192,120 200,120 C 208,120 222,112 235,120" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
-      <line id="lp-sword-blade" x1="200" y1="120" x2="200" y2="354" stroke="#0a5c6e" stroke-width="3.5" stroke-linecap="butt"/>
-      <path id="lp-sword-tip" d="M 194,348 L 200,368 L 206,348" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
+    <!-- Support pole: draws upward from pivot -->
+    <line id="sj-pole" x1="160" y1="12" x2="160" y2="42" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round"/>
 
-    <!-- SCALES -->
-    <g>
-      <line id="lp-support" x1="200" y1="120" x2="200" y2="158" stroke="#0a5c6e" stroke-width="2"/>
-      <circle id="lp-pivot" cx="200" cy="162" r="5" fill="#0a5c6e"/>
-      <line id="lp-beam" x1="143" y1="173" x2="257" y2="173" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
-      <g id="lp-chains">
-        <line x1="153" y1="173" x2="133" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
-        <line x1="153" y1="173" x2="173" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
-        <line x1="247" y1="173" x2="227" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
-        <line x1="247" y1="173" x2="267" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
-      </g>
-      <path id="lp-pan-l" d="M 122,215 Q 153,230 184,215" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
-      <path id="lp-pan-r" d="M 216,215 Q 247,230 278,215" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
-    </g>
+    <!-- Pivot ring -->
+    <circle id="sj-pivot" cx="160" cy="50" r="8" stroke="#0a5c6e" stroke-width="2.5"/>
 
-    <!-- WREATH RIGHT HALF (θ 90°→−90°, bottom to top, 13 leaves) -->
-    <path class="lp-leaf" style="animation-delay:.03s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(90) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.09s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(75) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.15s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(60) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.21s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(45) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.27s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(30) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.33s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(15) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.39s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(0) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.45s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-15) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.51s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-30) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.57s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-45) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.63s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-60) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.69s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-75) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.75s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-90) translate(133,0)"/>
-
-    <!-- WREATH LEFT HALF (θ 105°→270°, bottom to top, 12 leaves) -->
-    <path class="lp-leaf" style="animation-delay:.09s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(105) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.15s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(120) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.21s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(135) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.27s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(150) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.33s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(165) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.39s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(180) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.45s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(195) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.51s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(210) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.57s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(225) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.63s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(240) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.69s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(255) translate(133,0)"/>
-    <path class="lp-leaf" style="animation-delay:.75s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(270) translate(133,0)"/>
-
-    <!-- WREATH TIES -->
-    <g id="lp-ties">
-      <path d="M 196,340 C 186,354 172,358 177,367 C 179,371 190,365 200,358" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M 204,340 C 214,354 228,358 223,367 C 221,371 210,365 200,358" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M 177,367 Q 200,380 223,367" stroke="#0a5c6e" stroke-width="2" stroke-linecap="round"/>
+    <!-- Balance group — appears as one, then settles -->
+    <g id="sj-balance">
+      <!-- Central pin connecting pivot to beam -->
+      <circle cx="160" cy="60" r="4" fill="#0a5c6e"/>
+      <!-- Beam with end knobs -->
+      <line x1="58" y1="60" x2="262" y2="60" stroke="#0a5c6e" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="58" cy="60" r="5" fill="#0a5c6e"/>
+      <circle cx="262" cy="60" r="5" fill="#0a5c6e"/>
+      <!-- Left V-chains -->
+      <line x1="63" y1="62" x2="36" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
+      <line x1="63" y1="62" x2="90" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
+      <!-- Right V-chains -->
+      <line x1="257" y1="62" x2="230" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
+      <line x1="257" y1="62" x2="284" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
+      <!-- Left pan -->
+      <path d="M 22,138 Q 63,158 104,138" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Right pan -->
+      <path d="M 216,138 Q 257,158 298,138" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Subtle pan floor lines -->
+      <line x1="24" y1="140" x2="102" y2="140" stroke="#0a5c6e" stroke-width="1" opacity=".25"/>
+      <line x1="218" y1="140" x2="296" y2="140" stroke="#0a5c6e" stroke-width="1" opacity=".25"/>
     </g>
 
   </svg>

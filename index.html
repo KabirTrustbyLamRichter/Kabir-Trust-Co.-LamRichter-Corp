@@ -106,6 +106,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 .svc-intro{max-width:340px;font-size:12px;line-height:1.9;color:var(--muted);margin-top:20px}
 .svc-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
 .g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
 .svc-card{background:#fff;padding:48px 36px;position:relative;transition:background .3s}
 .svc-card:hover{background:var(--teal-pale)}
 .svc-num{font-family:var(--fd);font-size:56px;font-weight:300;color:transparent;-webkit-text-stroke:1px var(--border);line-height:1;margin-bottom:28px;transition:all .3s}
@@ -156,7 +157,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
   .hero,.about,.wws,.services,.insights,.contact{padding-left:24px;padding-right:24px}
   .hero{padding-top:80px;padding-bottom:60px}
   .about,.contact{grid-template-columns:1fr;gap:40px}
-  .g3,.wws-grid,.ins-grid{grid-template-columns:1fr}
+  .g3,.g4,.wws-grid,.ins-grid{grid-template-columns:1fr}
   .sfoot{grid-template-columns:1fr;text-align:center;padding:28px 24px}.ft-links{justify-content:center}
   .svc-hdr{flex-direction:column;gap:20px}
       #corner-logo{top:14px;right:14px;width:40px;height:40px}#corner-logo svg{width:28px;height:28px}
@@ -251,7 +252,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
       <div><span class="sec-lbl">// Leadership</span><h2 class="sec-title">The people behind<br/><em>the numbers.</em></h2></div>
       <p class="svc-intro">Our leadership brings decades of institutional experience across real estate acquisitions, capital markets, and asset management.</p>
     </div>
-    <div class="svc-grid g3">
+    <div class="svc-grid g4">
       <div class="svc-card reveal" style="padding:44px 40px">
         <div class="svc-num" style="font-size:36px">CEO</div>
         <h3 class="svc-title">Robert Lam</h3>
@@ -271,6 +272,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
         <h3 class="svc-title">Tawhid Kabir</h3>
         <p class="svc-desc">Director of Full Stack Development at Lam Richter Corp. Tawhid leads the firm's digital infrastructure, web presence, and technology strategy.</p>
         <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border)"><span class="ct-lbl">Email</span><span style="font-size:13px;color:var(--text);display:block;margin-top:4px">tawhid.kabir@lamrichter.com</span></div>
+        <span class="svc-arr">&#8594;</span>
+      </div>
+      <div class="svc-card reveal" style="padding:44px 40px">
+        <div class="svc-num" style="font-size:36px">CLO</div>
+        <h3 class="svc-title">Saoirse Allister</h3>
+        <p class="svc-desc">Chief Legal Officer at Lam Richter Corp. Saoirse oversees legal strategy, regulatory compliance, and investor documentation across the firm's portfolio.</p>
+        <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border)"><span class="ct-lbl">Email</span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=saoirse.allister%40lamrichter.com" target="_blank" style="font-size:13px;color:var(--teal);display:block;margin-top:4px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.65'" onmouseout="this.style.opacity='1'">saoirse.allister@lamrichter.com &#8599;</a></div>
         <span class="svc-arr">&#8594;</span>
       </div>
     </div>
@@ -294,6 +302,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
         <div class="ct-person"><span class="ct-lbl">CEO &amp; Co-founder</span><span class="ct-val">Robert Lam</span><span class="ct-sub">rob@lamrichter.com</span></div>
         <div class="ct-person"><span class="ct-lbl">Chief Real Estate Officer</span><span class="ct-val">Jonathan Mizrahi</span><span class="ct-sub">jon.mizrahi@lamrichter.com</span></div>
         <div class="ct-person"><span class="ct-lbl">Director of Full Stack Development</span><span class="ct-val">Tawhid Kabir</span><span class="ct-sub">tawhid.kabir@lamrichter.com</span></div>
+        <div class="ct-person"><span class="ct-lbl">Chief Legal Officer</span><span class="ct-val">Saoirse Allister</span><a class="ct-sub" href="https://mail.google.com/mail/?view=cm&fs=1&to=saoirse.allister%40lamrichter.com" target="_blank" style="text-decoration:none;color:inherit;display:block;transition:color .2s" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color=''">saoirse.allister@lamrichter.com &#8599;</a></div>
         <div class="ct-person"><span class="ct-lbl">Office</span><span class="ct-val" style="font-size:14px">730 3rd Avenue, 20th Floor<br/>New York, NY 10017</span></div>
       </div>
       <div class="ct-reach"><p>For all acquisition inquiries, please reach out directly to <strong>Jonathan Mizrahi</strong> at jon.mizrahi@lamrichter.com. Jonathan leads our estate management and responds within one business day.</p></div>
