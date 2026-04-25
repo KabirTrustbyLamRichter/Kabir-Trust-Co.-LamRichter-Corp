@@ -104,6 +104,38 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 
 @keyframes splashIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
+/* ENTRY SPLASH */
+#pp-splash{position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .65s ease}
+#pp-splash.gone{opacity:0;pointer-events:none}
+#pp-emblem{width:min(250px,38vw);height:auto;overflow:visible;display:block}
+.lp-leaf{opacity:0;transform-box:fill-box;transform-origin:center;animation:lpLeafIn .32s ease-out forwards}
+#lp-vine{opacity:0;animation:lpFadeIn .4s ease-out .0s forwards}
+#lp-sword-pommel-top,#lp-sword-pommel-ball{opacity:0;animation:lpFadeIn .3s ease-out .48s forwards}
+#lp-sword-guard{opacity:0;animation:lpFadeIn .3s ease-out .56s forwards}
+#lp-sword-grip{opacity:0;transform-box:fill-box;transform-origin:50% 0%;transform:scaleY(0);animation:lpGrowY .45s ease-out .58s forwards}
+#lp-sword-blade{opacity:0;transform-box:fill-box;transform-origin:50% 0%;transform:scaleY(0);animation:lpGrowY .75s cubic-bezier(.15,.9,.35,1.05) .65s forwards}
+#lp-sword-tip{opacity:0;animation:lpFadeIn .25s ease-out 1.12s forwards}
+#lp-support{opacity:0;animation:lpFadeIn .2s ease-out 1.05s forwards}
+#lp-pivot{opacity:0;animation:lpFadeIn .2s ease-out 1.12s forwards}
+#lp-beam{opacity:0;transform-box:fill-box;transform-origin:center;transform:scaleX(0);animation:lpGrowX .5s ease-out 1.18s forwards}
+#lp-chains{opacity:0;animation:lpFadeIn .35s ease-out 1.46s forwards}
+#lp-pan-l{opacity:0;transform:translateY(-8px);animation:lpPanDrop .38s ease-out 1.58s forwards}
+#lp-pan-r{opacity:0;transform:translateY(-8px);animation:lpPanDrop .38s ease-out 1.66s forwards}
+#lp-ties{opacity:0;animation:lpFadeIn .4s ease-out .75s forwards}
+#pp-capline{display:block;width:1px;height:26px;background:linear-gradient(to bottom,transparent,#d0dcea,transparent);margin:20px auto 0;opacity:0;animation:lpFadeIn .35s ease-out 1.82s forwards}
+#pp-cap{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#0a5c6e;opacity:0;transform:translateY(8px);animation:lpFadeUp .5s ease-out 1.9s forwards;text-align:center;margin-top:10px;letter-spacing:.3px}
+#pp-sub{font-family:'Syncopate',sans-serif;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#8fa3bc;opacity:0;transform:translateY(6px);animation:lpFadeUp .5s ease-out 2.05s forwards;text-align:center;margin-top:6px}
+@keyframes lpLeafIn{from{opacity:0;transform:scale(.12)}to{opacity:1;transform:scale(1)}}
+@keyframes lpFadeIn{to{opacity:1}}
+@keyframes lpGrowY{to{opacity:1;transform:scaleY(1)}}
+@keyframes lpGrowX{to{opacity:1;transform:scaleX(1)}}
+@keyframes lpPanDrop{to{opacity:1;transform:translateY(0)}}
+@keyframes lpFadeUp{to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){
+  #pp-splash *{animation-duration:.01ms!important;animation-delay:0ms!important}
+  #pp-splash{transition:opacity .15s}
+}
+
 @media(max-width:860px){
   .snav{padding:18px 24px}.nav-links{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}
   .pp-hero{padding:110px 24px 72px}
@@ -118,6 +150,80 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 </style>
 </head>
 <body>
+
+<!-- ENTRY SPLASH -->
+<div id="pp-splash">
+  <svg id="pp-emblem" viewBox="0 0 400 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Faint vine ring behind leaves -->
+    <circle id="lp-vine" cx="200" cy="200" r="133" stroke="#0a5c6e" stroke-width="1.5" opacity=".12"/>
+
+    <!-- SWORD (behind everything) -->
+    <g>
+      <path id="lp-sword-pommel-top" d="M 193,52 Q 200,38 207,52 L 207,58 L 193,58 Z" fill="#0a5c6e"/>
+      <circle id="lp-sword-pommel-ball" cx="200" cy="72" r="11" stroke="#0a5c6e" stroke-width="2.5"/>
+      <line id="lp-sword-grip" x1="200" y1="83" x2="200" y2="120" stroke="#0a5c6e" stroke-width="6" stroke-linecap="round"/>
+      <path id="lp-sword-guard" d="M 165,120 C 178,112 192,120 200,120 C 208,120 222,112 235,120" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
+      <line id="lp-sword-blade" x1="200" y1="120" x2="200" y2="354" stroke="#0a5c6e" stroke-width="3.5" stroke-linecap="butt"/>
+      <path id="lp-sword-tip" d="M 194,348 L 200,368 L 206,348" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- SCALES -->
+    <g>
+      <line id="lp-support" x1="200" y1="120" x2="200" y2="158" stroke="#0a5c6e" stroke-width="2"/>
+      <circle id="lp-pivot" cx="200" cy="162" r="5" fill="#0a5c6e"/>
+      <line id="lp-beam" x1="143" y1="173" x2="257" y2="173" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
+      <g id="lp-chains">
+        <line x1="153" y1="173" x2="133" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
+        <line x1="153" y1="173" x2="173" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
+        <line x1="247" y1="173" x2="227" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
+        <line x1="247" y1="173" x2="267" y2="215" stroke="#0a5c6e" stroke-width="1.5"/>
+      </g>
+      <path id="lp-pan-l" d="M 122,215 Q 153,230 184,215" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
+      <path id="lp-pan-r" d="M 216,215 Q 247,230 278,215" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- WREATH RIGHT HALF (θ 90°→−90°, bottom to top, 13 leaves) -->
+    <path class="lp-leaf" style="animation-delay:.03s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(90) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.09s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(75) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.15s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(60) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.21s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(45) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.27s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(30) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.33s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(15) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.39s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(0) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.45s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-15) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.51s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-30) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.57s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-45) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.63s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-60) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.69s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-75) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.75s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(-90) translate(133,0)"/>
+
+    <!-- WREATH LEFT HALF (θ 105°→270°, bottom to top, 12 leaves) -->
+    <path class="lp-leaf" style="animation-delay:.09s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(105) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.15s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(120) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.21s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(135) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.27s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(150) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.33s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(165) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.39s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(180) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.45s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(195) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.51s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(210) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.57s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(225) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.63s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(240) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.69s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(255) translate(133,0)"/>
+    <path class="lp-leaf" style="animation-delay:.75s" d="M -22,0 C -13,-7 7,-7 22,0 C 7,7 -13,7 -22,0 Z" fill="#0a5c6e" transform="translate(200,200) rotate(270) translate(133,0)"/>
+
+    <!-- WREATH TIES -->
+    <g id="lp-ties">
+      <path d="M 196,340 C 186,354 172,358 177,367 C 179,371 190,365 200,358" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 204,340 C 214,354 228,358 223,367 C 221,371 210,365 200,358" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 177,367 Q 200,380 223,367" stroke="#0a5c6e" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+  </svg>
+  <span id="pp-capline"></span>
+  <p id="pp-cap">Privacy &amp; your information.</p>
+  <p id="pp-sub">Lam Richter Corporation.</p>
+</div>
 
 <div id="cur"></div>
 <div id="cur-ring"></div>
@@ -336,6 +442,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
       mob.classList.remove('open');
     });
   });
+
+  // ENTRY SPLASH
+  var splash=document.getElementById('pp-splash');
+  if(splash){
+    setTimeout(function(){splash.classList.add('gone');},2450);
+    setTimeout(function(){if(splash.parentNode)splash.parentNode.removeChild(splash);},3200);
+  }
 
   // REVEAL ON SCROLL
   var els=document.querySelectorAll('.reveal');
