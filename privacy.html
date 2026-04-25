@@ -105,9 +105,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 @keyframes splashIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* ENTRY SPLASH */
-#pp-splash{position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .65s ease}
+#pp-splash{position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;overflow-y:auto;transition:opacity .65s ease}
 #pp-splash.gone{opacity:0;pointer-events:none}
-#pp-emblem{width:min(250px,38vw);height:auto;overflow:visible;display:block}
+#pp-emblem{width:min(220px,34vw);height:auto;overflow:visible;display:block}
 .lp-leaf{opacity:0;transform-box:fill-box;transform-origin:center;animation:lpLeafIn .32s ease-out forwards}
 #lp-vine{opacity:0;animation:lpFadeIn .4s ease-out .0s forwards}
 #lp-sword-pommel-top,#lp-sword-pommel-ball{opacity:0;animation:lpFadeIn .3s ease-out .48s forwards}
@@ -153,7 +153,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 
 <!-- ENTRY SPLASH -->
 <div id="pp-splash">
-  <svg id="pp-emblem" viewBox="0 0 400 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg id="pp-emblem" viewBox="0 25 400 365" fill="none" xmlns="http://www.w3.org/2000/svg">
 
     <!-- Faint vine ring behind leaves -->
     <circle id="lp-vine" cx="200" cy="200" r="133" stroke="#0a5c6e" stroke-width="1.5" opacity=".12"/>
@@ -446,8 +446,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
   // ENTRY SPLASH
   var splash=document.getElementById('pp-splash');
   if(splash){
-    setTimeout(function(){splash.classList.add('gone');},2450);
-    setTimeout(function(){if(splash.parentNode)splash.parentNode.removeChild(splash);},3200);
+    dot.style.opacity='0';
+    ring.style.opacity='0';
+    setTimeout(function(){splash.classList.add('gone');},4200);
+    setTimeout(function(){
+      if(splash.parentNode)splash.parentNode.removeChild(splash);
+      dot.style.opacity='';
+      ring.style.opacity='';
+    },5000);
   }
 
   // REVEAL ON SCROLL
