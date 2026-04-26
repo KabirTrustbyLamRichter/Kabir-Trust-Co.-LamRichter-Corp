@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Privacy Policy — Lam Richter Corporation.</title>
+<title>Regulatory Disclosures — Lam Richter Corporation.</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="apple-touch-icon" href="favicon.svg"/>
 <meta name="theme-color" content="#0a5c6e"/>
@@ -75,12 +75,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 .pp-list li::before{content:'▪';position:absolute;left:0;color:var(--teal-light);font-size:10px;top:3px}
 .pp-list strong{color:var(--text);font-weight:400;font-family:var(--fd);font-style:italic}
 
-/* WIDE CARD (spans 2 cols) */
+/* WIDE CARD */
 .pp-card-wide{grid-column:1/-1}
 
 /* CONTACT STRIP */
 .pp-contact{background:var(--teal-dark);padding:72px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;border-top:1px solid rgba(255,255,255,.08)}
-.pp-contact-left{}
 .pp-contact-eyebrow{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-bottom:14px}
 .pp-contact-title{font-family:var(--fd);font-size:clamp(26px,3.5vw,44px);font-weight:400;font-style:italic;color:#fff;line-height:1.15;margin-bottom:20px}
 .pp-contact-body{font-size:12px;line-height:1.9;color:rgba(255,255,255,.6);max-width:400px}
@@ -102,23 +101,28 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
-@keyframes splashIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-/* ENTRY SPLASH — Scales of Justice */
+/* ENTRY SPLASH — Globe + Shield */
 #pp-splash{position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;transition:opacity .65s ease}
 #pp-splash.gone{opacity:0;pointer-events:none}
-#pp-emblem{width:min(280px,44vw);height:auto;display:block}
-#sj-finial{opacity:0;animation:sjFade .25s ease-out 0s forwards}
-#sj-pole{stroke-dasharray:30;stroke-dashoffset:30;opacity:0;animation:sjDash .35s ease-out .2s forwards}
-#sj-pivot{stroke-dasharray:52;stroke-dashoffset:52;opacity:0;animation:sjDash .35s ease-out .48s forwards}
-#sj-balance{opacity:0;transform-origin:160px 50px;animation:sjFade .4s ease-out .78s forwards,sjSettle 1.8s cubic-bezier(.2,.82,.32,1) 1.3s both}
-#pp-capline{display:block;width:1px;height:24px;background:linear-gradient(to bottom,transparent,#d0dcea,transparent);margin:22px auto 0;opacity:0;animation:sjFade .35s ease-out 1.7s forwards}
-#pp-cap{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#0a5c6e;opacity:0;transform:translateY(8px);animation:sjUp .5s ease-out 1.8s forwards;text-align:center;margin-top:10px;letter-spacing:.3px}
-#pp-sub{font-family:'Syncopate',sans-serif;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#8fa3bc;opacity:0;transform:translateY(6px);animation:sjUp .5s ease-out 1.95s forwards;text-align:center;margin-top:6px}
-@keyframes sjDash{to{opacity:1;stroke-dashoffset:0}}
-@keyframes sjFade{to{opacity:1}}
-@keyframes sjUp{to{opacity:1;transform:translateY(0)}}
-@keyframes sjSettle{0%{transform:rotate(-6deg)}52%{transform:rotate(3deg)}100%{transform:rotate(0deg)}}
+#pp-emblem{width:min(260px,42vw);height:auto;display:block}
+
+#gd-circle{stroke-dasharray:452;stroke-dashoffset:452;opacity:0;animation:gdDash .5s ease-out 0s forwards}
+#gd-eq{opacity:0;animation:gdFade .3s ease-out .45s forwards}
+#gd-vm{opacity:0;animation:gdFade .3s ease-out .55s forwards}
+#gd-h1,#gd-h2{opacity:0;animation:gdFade .3s ease-out .65s forwards}
+#gd-m1,#gd-m2{opacity:0;animation:gdFade .3s ease-out .72s forwards}
+#gd-h3,#gd-h4{opacity:0;animation:gdFade .3s ease-out .80s forwards}
+#gd-shield-bg{opacity:0;animation:gdFade .2s ease-out .88s forwards}
+#gd-shield-path{stroke-dasharray:270;stroke-dashoffset:270;opacity:0;animation:gdDash .38s ease-out .92s forwards}
+#gd-check{stroke-dasharray:67;stroke-dashoffset:67;opacity:0;animation:gdDash .4s ease-out 1.25s forwards}
+#pp-capline{display:block;width:1px;height:24px;background:linear-gradient(to bottom,transparent,#d0dcea,transparent);margin:22px auto 0;opacity:0;animation:gdFade .35s ease-out 1.65s forwards}
+#pp-cap{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#0a5c6e;opacity:0;transform:translateY(8px);animation:gdUp .5s ease-out 1.75s forwards;text-align:center;margin-top:10px;letter-spacing:.3px}
+#pp-sub{font-family:'Syncopate',sans-serif;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#8fa3bc;opacity:0;transform:translateY(6px);animation:gdUp .5s ease-out 1.9s forwards;text-align:center;margin-top:6px}
+
+@keyframes gdDash{to{opacity:1;stroke-dashoffset:0}}
+@keyframes gdFade{to{opacity:1}}
+@keyframes gdUp{to{opacity:1;transform:translateY(0)}}
+
 @media(prefers-reduced-motion:reduce){
   #pp-splash *{animation-duration:.01ms!important;animation-delay:0ms!important}
   #pp-splash{transition:opacity .15s}
@@ -141,43 +145,37 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
 
 <!-- ENTRY SPLASH -->
 <div id="pp-splash">
-  <svg id="pp-emblem" viewBox="0 0 320 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg id="pp-emblem" viewBox="0 0 280 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="gc">
+        <circle cx="108" cy="88" r="72"/>
+      </clipPath>
+    </defs>
 
-    <!-- Top finial triangle -->
-    <path id="sj-finial" d="M 155,12 L 160,4 L 165,12 Z" fill="#0a5c6e"/>
+    <!-- Globe outline -->
+    <circle id="gd-circle" cx="108" cy="88" r="72" stroke="#0a5c6e" stroke-width="2.5"/>
 
-    <!-- Support pole: draws upward from pivot -->
-    <line id="sj-pole" x1="160" y1="12" x2="160" y2="42" stroke="#0a5c6e" stroke-width="2.5" stroke-linecap="round"/>
-
-    <!-- Pivot ring -->
-    <circle id="sj-pivot" cx="160" cy="50" r="8" stroke="#0a5c6e" stroke-width="2.5"/>
-
-    <!-- Balance group — appears as one, then settles -->
-    <g id="sj-balance">
-      <!-- Central pin connecting pivot to beam -->
-      <circle cx="160" cy="60" r="4" fill="#0a5c6e"/>
-      <!-- Beam with end knobs -->
-      <line x1="58" y1="60" x2="262" y2="60" stroke="#0a5c6e" stroke-width="3.5" stroke-linecap="round"/>
-      <circle cx="58" cy="60" r="5" fill="#0a5c6e"/>
-      <circle cx="262" cy="60" r="5" fill="#0a5c6e"/>
-      <!-- Left V-chains -->
-      <line x1="63" y1="62" x2="36" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
-      <line x1="63" y1="62" x2="90" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
-      <!-- Right V-chains -->
-      <line x1="257" y1="62" x2="230" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
-      <line x1="257" y1="62" x2="284" y2="138" stroke="#0a5c6e" stroke-width="1.8"/>
-      <!-- Left pan -->
-      <path d="M 22,138 Q 63,158 104,138" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round" fill="none"/>
-      <!-- Right pan -->
-      <path d="M 216,138 Q 257,158 298,138" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round" fill="none"/>
-      <!-- Subtle pan floor lines -->
-      <line x1="24" y1="140" x2="102" y2="140" stroke="#0a5c6e" stroke-width="1" opacity=".25"/>
-      <line x1="218" y1="140" x2="296" y2="140" stroke="#0a5c6e" stroke-width="1" opacity=".25"/>
+    <!-- Globe grid lines clipped to circle -->
+    <g clip-path="url(#gc)">
+      <line id="gd-eq" x1="36" y1="88" x2="180" y2="88" stroke="#0a5c6e" stroke-width="1.8"/>
+      <line id="gd-vm" x1="108" y1="16" x2="108" y2="160" stroke="#0a5c6e" stroke-width="1.8"/>
+      <line id="gd-h1" x1="36" y1="55" x2="180" y2="55" stroke="#0a5c6e" stroke-width="1.2" opacity=".7"/>
+      <line id="gd-h2" x1="36" y1="121" x2="180" y2="121" stroke="#0a5c6e" stroke-width="1.2" opacity=".7"/>
+      <path id="gd-m1" d="M 108,16 Q 50,88 108,160" stroke="#0a5c6e" stroke-width="1.2" opacity=".7" fill="none"/>
+      <path id="gd-m2" d="M 108,16 Q 166,88 108,160" stroke="#0a5c6e" stroke-width="1.2" opacity=".7" fill="none"/>
+      <line id="gd-h3" x1="36" y1="28" x2="180" y2="28" stroke="#0a5c6e" stroke-width="1" opacity=".45"/>
+      <line id="gd-h4" x1="36" y1="148" x2="180" y2="148" stroke="#0a5c6e" stroke-width="1" opacity=".45"/>
     </g>
 
+    <!-- Shield white fill (masks globe lines behind it) -->
+    <path id="gd-shield-bg" d="M 168,118 L 245,118 L 245,166 C 245,188 206,202 206,202 C 206,202 168,188 168,166 Z" fill="white"/>
+    <!-- Shield border -->
+    <path id="gd-shield-path" d="M 168,118 L 245,118 L 245,166 C 245,188 206,202 206,202 C 206,202 168,188 168,166 Z" stroke="#0a5c6e" stroke-width="2.5" fill="none"/>
+    <!-- Checkmark -->
+    <path id="gd-check" d="M 182,163 L 198,180 L 230,148" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </svg>
   <span id="pp-capline"></span>
-  <p id="pp-cap">Privacy &amp; your information.</p>
+  <p id="pp-cap">Regulatory disclosures.</p>
   <p id="pp-sub">Lam Richter Corporation.</p>
 </div>
 
@@ -197,6 +195,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
     <li><a href="index.html#l-leadership">Leadership</a></li>
     <li><a href="index.html#l-insights">Insights</a></li>
     <li><a href="index.html#l-contact">Contact</a></li>
+    <li><a href="privacy.html" class="nav-pill">Privacy</a></li>
     <li><a href="login.html" class="nav-pill">Staff Login</a></li>
   </ul>
   <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
@@ -208,132 +207,128 @@ body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:30
   <a href="index.html#l-leadership">Leadership</a>
   <a href="index.html#l-insights">Insights</a>
   <a href="index.html#l-contact">Contact</a>
+  <a href="privacy.html" class="mob-link mob-small">Privacy</a>
   <a href="login.html" class="mob-link mob-small">Staff Login</a>
 </div>
 
 <!-- HERO -->
 <section class="pp-hero">
   <div class="hero-letter-left"></div>
-  <div class="hero-letter">PP</div>
+  <div class="hero-letter">RD</div>
   <span class="hero-eyebrow">// Legal &middot; Lamrichter.com</span>
-  <h1>Privacy &amp; your<br/><em>information.</em></h1>
+  <h1>Regulatory &amp; our<br/><em>disclosures.</em></h1>
   <div class="hero-rule"></div>
-  <span class="pp-date">Last Updated &mdash; April 24, 2026</span>
-  <p class="pp-lede">Lamrichter values your privacy. This policy explains how we collect, use, and protect your information when you use our website — plainly, without the fine print.</p>
+  <span class="pp-date">Effective &mdash; April 26, 2026</span>
+  <p class="pp-lede">Lam Richter Corporation is committed to transparency in all of its communications. The following disclosures govern the use of this website and describe the nature of our advisory activities, the limitations of our communications, and your rights as a visitor.</p>
 </section>
 
-<!-- POLICY SECTIONS -->
+<!-- DISCLOSURE SECTIONS -->
 <div class="pp-body">
-  <span class="sec-lbl">// Privacy Policy</span>
+  <span class="sec-lbl">// Regulatory Disclosures</span>
 
   <div class="pp-grid">
 
-    <!-- 1 -->
+    <!-- I -->
     <div class="pp-card reveal">
       <span class="pp-num">I.</span>
-      <div class="pp-card-title">Information We Collect</div>
+      <div class="pp-card-title">General Disclaimer</div>
       <div class="pp-card-body">
-        <p>We only collect information necessary for account creation and login:</p>
-        <ul class="pp-list">
-          <li><strong>Account Information</strong> — Username, email address, and password (stored securely)</li>
-          <li><strong>Basic Technical Data</strong> — IP address and browser type for security purposes</li>
-        </ul>
+        <p>The information contained on this website is provided for informational purposes only and does not constitute legal, tax, financial, or investment advice of any kind.</p>
+        <p>Visitors should consult qualified legal, tax, and financial professionals before making any investment decision. Lam Richter Corporation assumes no liability for reliance on the materials published here.</p>
       </div>
     </div>
 
-    <!-- 2 -->
+    <!-- II -->
     <div class="pp-card reveal">
       <span class="pp-num">II.</span>
-      <div class="pp-card-title">How We Use Your Information</div>
+      <div class="pp-card-title">Investment Risk</div>
       <div class="pp-card-body">
-        <p>We use your information to:</p>
+        <p>Real estate investments involve significant risk, including the possible loss of principal. Past performance is not indicative of future results.</p>
         <ul class="pp-list">
-          <li>Create and manage your account</li>
-          <li>Allow you to log in securely</li>
-          <li>Protect against unauthorized access or misuse</li>
+          <li>Property values can decline due to market, economic, or environmental conditions</li>
+          <li>Liquidity in real estate is limited — investments may not be readily convertible to cash</li>
+          <li>Returns are not guaranteed and depend on numerous factors outside the firm's control</li>
         </ul>
-        <p style="margin-top:16px;font-style:italic;color:var(--teal-light)">We do not use your data for advertising or tracking.</p>
       </div>
     </div>
 
-    <!-- 3 -->
+    <!-- III -->
     <div class="pp-card reveal">
       <span class="pp-num">III.</span>
-      <div class="pp-card-title">Sharing Your Information</div>
+      <div class="pp-card-title">No Securities Offering</div>
       <div class="pp-card-body">
-        <p>We do not sell or share your personal information with third parties.</p>
-        <p>We may only disclose information if required by law or to protect the integrity and security of our platform.</p>
+        <p>Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, or a recommendation of any security or investment product.</p>
+        <p>Any offering of securities will be made only through formal offering documents prepared in accordance with applicable federal and state securities laws, which will contain important information about risks, fees, and restrictions.</p>
       </div>
     </div>
 
-    <!-- 4 -->
+    <!-- IV -->
     <div class="pp-card reveal">
       <span class="pp-num">IV.</span>
-      <div class="pp-card-title">Data Security</div>
+      <div class="pp-card-title">Regulatory Compliance</div>
       <div class="pp-card-body">
-        <p>We take reasonable steps to protect your data:</p>
+        <p>Lam Richter Corporation operates subject to applicable federal and state regulations governing real estate investment advisory activities.</p>
         <ul class="pp-list">
-          <li>Passwords are encrypted and hashed</li>
-          <li>Access to data is restricted to authorized personnel</li>
+          <li>Advisory services are provided in compliance with applicable law in each jurisdiction where the firm operates</li>
+          <li>We are not a registered broker-dealer or investment adviser under federal securities law unless separately disclosed</li>
+          <li>Regulatory status varies by jurisdiction and service type</li>
         </ul>
-        <p style="margin-top:16px">However, no online system is completely secure. We encourage responsible account management.</p>
       </div>
     </div>
 
-    <!-- 5 -->
+    <!-- V -->
     <div class="pp-card reveal">
       <span class="pp-num">V.</span>
-      <div class="pp-card-title">Data Retention</div>
+      <div class="pp-card-title">Forward-Looking Statements</div>
       <div class="pp-card-body">
-        <p>We keep your account information for as long as your account exists and is in use.</p>
-        <p>You may request deletion of your account and associated data at any time by contacting us at the address below.</p>
+        <p>Certain statements on this website may constitute forward-looking statements, including projections, forecasts, or descriptions of anticipated market conditions.</p>
+        <p>These statements are based on current expectations and assumptions and are subject to known and unknown risks. Actual results may differ materially. Lam Richter assumes no obligation to update forward-looking statements after the date of publication.</p>
       </div>
     </div>
 
-    <!-- 6 -->
+    <!-- VI -->
     <div class="pp-card reveal">
       <span class="pp-num">VI.</span>
-      <div class="pp-card-title">Your Rights</div>
+      <div class="pp-card-title">Conflicts of Interest</div>
       <div class="pp-card-body">
-        <p>You have the right to:</p>
+        <p>Lam Richter Corporation and its principals may hold proprietary interests in certain transactions, assets, or opportunities presented to clients.</p>
         <ul class="pp-list">
-          <li>Request access to the personal data we hold about you</li>
-          <li>Request correction or deletion of your account</li>
+          <li>Material conflicts of interest are disclosed to affected parties in writing prior to engagement</li>
+          <li>The firm has adopted policies and procedures designed to manage and mitigate conflicts</li>
+          <li>Clients are encouraged to inquire about any potential conflict prior to engaging our services</li>
         </ul>
-        <p style="margin-top:16px">To exercise these rights, contact us using the information below.</p>
       </div>
     </div>
 
-    <!-- 7 -->
+    <!-- VII -->
     <div class="pp-card reveal">
       <span class="pp-num">VII.</span>
-      <div class="pp-card-title">Children's Privacy</div>
+      <div class="pp-card-title">Limitation of Liability</div>
       <div class="pp-card-body">
-        <p>Lamrichter is not intended for children under the age of 13.</p>
-        <p>We do not knowingly collect personal information from children. If we become aware that a child under 13 has provided us with personal data, we will delete it promptly.</p>
+        <p>This website and its contents are provided on an "as-is" basis without warranties of any kind, express or implied, including warranties of accuracy, completeness, or fitness for a particular purpose.</p>
+        <p>To the fullest extent permitted by law, Lam Richter Corporation shall not be liable for any direct, indirect, incidental, or consequential damages arising from use of or reliance on the information presented herein.</p>
       </div>
     </div>
 
-    <!-- 8 -->
+    <!-- VIII -->
     <div class="pp-card reveal">
       <span class="pp-num">VIII.</span>
-      <div class="pp-card-title">Changes to This Policy</div>
+      <div class="pp-card-title">Governing Law</div>
       <div class="pp-card-body">
-        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements.</p>
-        <p>Updates will be posted on this page with a revised effective date. Continued use of the site after changes constitutes acceptance of the updated policy.</p>
+        <p>These disclosures and all matters relating to this website shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of law provisions.</p>
+        <p>Any dispute arising under or in connection with these disclosures shall be subject to the exclusive jurisdiction of the courts located in New York County, New York.</p>
       </div>
     </div>
 
-    <!-- 9 — wide -->
+    <!-- IX — wide -->
     <div class="pp-card pp-card-wide reveal">
       <span class="pp-num">IX.</span>
-      <div class="pp-card-title">Contact Us</div>
+      <div class="pp-card-title">Disclosure Inquiries</div>
       <div class="pp-card-body">
-        <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out:</p>
+        <p>For questions or concerns related to these regulatory disclosures, compliance matters, or the nature of our advisory services, please contact our Chief Legal Officer:</p>
         <ul class="pp-list" style="margin-top:14px">
-          <li><strong>Email</strong> — <a href="https://mail.google.com/mail/?view=cm&to=saoirse.allister@lamrichter.com"
-target="_blank" style="color:var(--teal);text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">saoirse.allister@lamrichter.com</a></li>
-          <li><strong>Office</strong> — 730 3rd Avenue, 20th Floor, New York, NY 10017</li>
+          <li><strong>Saoirse Allister, CLO</strong> &mdash; <a href="https://mail.google.com/mail/?view=cm&to=saoirse.allister@lamrichter.com" target="_blank" style="color:var(--teal);text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">saoirse.allister@lamrichter.com</a></li>
+          <li><strong>Office</strong> &mdash; 730 3rd Avenue, 20th Floor, New York, NY 10017</li>
         </ul>
       </div>
     </div>
@@ -344,9 +339,9 @@ target="_blank" style="color:var(--teal);text-decoration:none;transition:opacity
 <!-- CONTACT STRIP -->
 <div class="pp-contact reveal">
   <div class="pp-contact-left">
-    <span class="pp-contact-eyebrow">// Questions &amp; Requests</span>
-    <div class="pp-contact-title">We're here to<br/>help.</div>
-    <p class="pp-contact-body">For data access requests, account deletion, or any privacy-related inquiries, our team responds within one business day.</p>
+    <span class="pp-contact-eyebrow">// Compliance &amp; Inquiries</span>
+    <div class="pp-contact-title">We're transparent,<br/>always.</div>
+    <p class="pp-contact-body">For questions about these disclosures or our compliance posture, our legal team is available and responds within one business day.</p>
   </div>
   <div class="pp-contact-right">
     <a href="https://mail.google.com/mail/?view=cm&to=saoirse.allister@lamrichter.com" class="pp-contact-email" target="_blank" rel="noopener noreferrer">saoirse.allister@lamrichter.com &nbsp;&#8594;</a>
@@ -358,8 +353,8 @@ target="_blank" style="color:var(--teal);text-decoration:none;transition:opacity
   <div><span class="ft-name">Lam Richter Corporation</span><span class="ft-tag">Real Estate Investment &amp; Advisory</span></div>
   <p class="ft-copy">&#169; 2026 &middot; All Rights Reserved<br/>Real estate advisory services subject to regulatory oversight.</p>
   <div class="ft-links">
-    <a href="privacy.html" class="active">Privacy Policy</a>
-    <a href="disclosures.html">Disclosures</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclosures.html" class="active">Disclosures</a>
     <a href="login.html">Staff Login &#8594;</a>
   </div>
 </footer>
