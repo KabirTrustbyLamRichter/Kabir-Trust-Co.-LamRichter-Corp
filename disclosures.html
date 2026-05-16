@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Regulatory Disclosures — Lam Richter Corporation.</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="apple-touch-icon" href="favicon.svg"/>
+<meta name="theme-color" content="#0a5c6e"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Syncopate:wght@400;700&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;cursor:none!important}
+:root{
+  --bg:#fff;--bg2:#f4f7fb;--border:#d0dcea;
+  --teal:#0a5c6e;--teal-dark:#074554;--teal-light:#1a8a9e;--teal-pale:#e6f5f7;
+  --text:#0d1f3c;--muted:#5a6e8a;--muted2:#8fa3bc;
+  --fd:'Playfair Display',serif;--fs:'Jost',sans-serif;--fh:'Syncopate',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fs);font-weight:300;overflow-x:hidden}
+
+#cur{position:fixed;width:10px;height:10px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:2147483647;transform:translate(-50%,-50%);transition:width .2s,height .2s;will-change:left,top;left:-100px;top:-100px}
+#cur-ring{position:fixed;width:34px;height:34px;border:1.5px solid var(--teal);border-radius:50%;pointer-events:none;z-index:2147483646;transform:translate(-50%,-50%);opacity:.4;will-change:left,top;left:-100px;top:-100px}
+#corner-logo{position:fixed;top:16px;right:16px;z-index:998;width:36px;height:36px;background:#0046ad;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.15);transition:transform .2s}
+#corner-logo:hover{transform:scale(1.08)}
+#corner-logo svg{width:24px;height:24px}
+
+/* NAV */
+.snav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.96);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.snav.scrolled{border-color:var(--border);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-logo-main{font-family:var(--fh);font-size:11px;letter-spacing:3px;display:block;color:var(--teal);text-decoration:none}
+.nav-logo-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);display:block;margin-top:3px}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-pill{font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border:1px solid var(--teal);color:var(--teal);background:transparent;font-family:var(--fs);font-weight:400;transition:all .2s;text-decoration:none;display:inline-block}
+.nav-pill:hover{background:var(--teal);color:#fff}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--teal);transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .3s;background:var(--teal-dark)}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a,.mob-link{font-family:var(--fd);font-size:clamp(28px,6vw,48px);font-weight:400;font-style:italic;color:#fff;text-decoration:none;opacity:.7;transition:opacity .2s;background:none;border:none}
+.mobile-menu a:hover,.mob-link:hover{opacity:1}
+.mob-small{font-family:var(--fs)!important;font-size:11px!important;letter-spacing:3px;text-transform:uppercase;font-style:normal!important;opacity:.4!important;margin-top:20px;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;width:220px;text-align:center}
+
+/* HERO */
+.pp-hero{padding:140px 60px 100px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-letter{position:absolute;top:50%;right:-20px;transform:translateY(-60%);font-family:var(--fd);font-size:36vw;font-weight:400;line-height:1;pointer-events:none;user-select:none;letter-spacing:-12px;color:#d5edf1}
+.hero-letter-left{position:absolute;top:0;left:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--border) 20%,var(--border) 80%,transparent)}
+.hero-eyebrow{font-size:9px;letter-spacing:5px;text-transform:uppercase;margin-bottom:24px;color:var(--teal);display:block}
+.pp-hero h1{font-family:var(--fd);font-size:clamp(48px,7vw,100px);font-weight:400;line-height:1.05;color:var(--text);letter-spacing:-1px;max-width:820px}
+.pp-hero h1 em{font-style:italic;color:var(--teal)}
+.hero-rule{width:56px;height:3px;margin:36px 0;background:var(--teal)}
+.pp-date{font-family:var(--fh);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--muted2);margin-bottom:28px;display:block}
+.pp-lede{max-width:540px;font-size:14px;line-height:2;color:var(--muted)}
+
+/* SECTIONS */
+.pp-body{padding:80px 60px 110px;background:var(--bg)}
+.sec-lbl{font-size:9px;letter-spacing:5px;text-transform:uppercase;margin-bottom:48px;display:block;color:var(--teal)}
+.pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.pp-card{background:#fff;padding:48px 40px;position:relative;transition:background .3s}
+.pp-card:hover{background:var(--teal-pale)}
+.pp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;transform:scaleY(0);transform-origin:bottom;transition:transform .3s;background:var(--teal)}
+.pp-card:hover::before{transform:scaleY(1)}
+.pp-num{font-family:var(--fd);font-size:52px;font-weight:300;color:transparent;-webkit-text-stroke:1px var(--border);line-height:1;margin-bottom:22px;transition:all .3s;display:block}
+.pp-card:hover .pp-num{-webkit-text-stroke:1px var(--teal);opacity:.25}
+.pp-card-title{font-family:var(--fd);font-size:22px;font-weight:400;color:var(--text);margin-bottom:14px;line-height:1.2}
+.pp-card-body{font-size:12px;line-height:1.95;color:var(--muted)}
+.pp-card-body p+p{margin-top:12px}
+.pp-list{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.pp-list li{font-size:12px;line-height:1.8;color:var(--muted);padding-left:18px;position:relative}
+.pp-list li::before{content:'▪';position:absolute;left:0;color:var(--teal-light);font-size:10px;top:3px}
+.pp-list strong{color:var(--text);font-weight:400;font-family:var(--fd);font-style:italic}
+
+/* WIDE CARD */
+.pp-card-wide{grid-column:1/-1}
+
+/* CONTACT STRIP */
+.pp-contact{background:var(--teal-dark);padding:72px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;border-top:1px solid rgba(255,255,255,.08)}
+.pp-contact-eyebrow{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-bottom:14px}
+.pp-contact-title{font-family:var(--fd);font-size:clamp(26px,3.5vw,44px);font-weight:400;font-style:italic;color:#fff;line-height:1.15;margin-bottom:20px}
+.pp-contact-body{font-size:12px;line-height:1.9;color:rgba(255,255,255,.6);max-width:400px}
+.pp-contact-right{flex-shrink:0}
+.pp-contact-email{display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:16px 36px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;transition:all .25s}
+.pp-contact-email:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.65)}
+
+/* FOOTER */
+.sfoot{padding:44px 60px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px;background:var(--teal-dark)}
+.ft-name{font-family:var(--fh);font-size:10px;letter-spacing:2px;color:#fff;display:block}
+.ft-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:3px;display:block}
+.ft-copy{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);text-align:center;line-height:1.8}
+.ft-links{display:flex;justify-content:flex-end;gap:28px}
+.ft-links a{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
+.ft-links a:hover{color:#fff}
+.ft-links a.active{color:rgba(255,255,255,.75)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ENTRY SPLASH — Globe + Shield */
+#pp-splash{position:fixed;inset:0;z-index:99999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;transition:opacity .65s ease}
+#pp-splash.gone{opacity:0;pointer-events:none}
+#pp-emblem{width:min(260px,42vw);height:auto;display:block}
+
+#gd-circle{stroke-dasharray:452;stroke-dashoffset:452;opacity:0;animation:gdDash .5s ease-out 0s forwards}
+#gd-eq{opacity:0;animation:gdFade .3s ease-out .45s forwards}
+#gd-vm{opacity:0;animation:gdFade .3s ease-out .55s forwards}
+#gd-h1,#gd-h2{opacity:0;animation:gdFade .3s ease-out .65s forwards}
+#gd-m1,#gd-m2{opacity:0;animation:gdFade .3s ease-out .72s forwards}
+#gd-h3,#gd-h4{opacity:0;animation:gdFade .3s ease-out .80s forwards}
+#gd-shield-bg{opacity:0;animation:gdFade .2s ease-out .88s forwards}
+#gd-shield-path{stroke-dasharray:270;stroke-dashoffset:270;opacity:0;animation:gdDash .38s ease-out .92s forwards}
+#gd-check{stroke-dasharray:67;stroke-dashoffset:67;opacity:0;animation:gdDash .4s ease-out 1.25s forwards}
+#pp-capline{display:block;width:1px;height:24px;background:linear-gradient(to bottom,transparent,#d0dcea,transparent);margin:22px auto 0;opacity:0;animation:gdFade .35s ease-out 1.65s forwards}
+#pp-cap{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#0a5c6e;opacity:0;transform:translateY(8px);animation:gdUp .5s ease-out 1.75s forwards;text-align:center;margin-top:10px;letter-spacing:.3px}
+#pp-sub{font-family:'Syncopate',sans-serif;font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#8fa3bc;opacity:0;transform:translateY(6px);animation:gdUp .5s ease-out 1.9s forwards;text-align:center;margin-top:6px}
+
+@keyframes gdDash{to{opacity:1;stroke-dashoffset:0}}
+@keyframes gdFade{to{opacity:1}}
+@keyframes gdUp{to{opacity:1;transform:translateY(0)}}
+
+@media(prefers-reduced-motion:reduce){
+  #pp-splash *{animation-duration:.01ms!important;animation-delay:0ms!important}
+  #pp-splash{transition:opacity .15s}
+}
+
+@media(max-width:860px){
+  .snav{padding:18px 24px}.nav-links{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}
+  .pp-hero{padding:110px 24px 72px}
+  .pp-body{padding:60px 24px 80px}
+  .pp-grid{grid-template-columns:1fr}
+  .pp-card-wide{grid-column:auto}
+  .pp-contact{flex-direction:column;align-items:flex-start;padding:52px 24px}
+  .pp-contact-right{width:100%}.pp-contact-email{display:block;text-align:center;width:100%}
+  .sfoot{grid-template-columns:1fr;text-align:center;padding:28px 24px}.ft-links{justify-content:center}
+  #corner-logo{top:14px;right:14px;width:40px;height:40px}#corner-logo svg{width:28px;height:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ENTRY SPLASH -->
+<div id="pp-splash">
+  <svg id="pp-emblem" viewBox="0 0 280 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="gc">
+        <circle cx="108" cy="88" r="72"/>
+      </clipPath>
+    </defs>
+
+    <!-- Globe outline -->
+    <circle id="gd-circle" cx="108" cy="88" r="72" stroke="#0a5c6e" stroke-width="2.5"/>
+
+    <!-- Globe grid lines clipped to circle -->
+    <g clip-path="url(#gc)">
+      <line id="gd-eq" x1="36" y1="88" x2="180" y2="88" stroke="#0a5c6e" stroke-width="1.8"/>
+      <line id="gd-vm" x1="108" y1="16" x2="108" y2="160" stroke="#0a5c6e" stroke-width="1.8"/>
+      <line id="gd-h1" x1="36" y1="55" x2="180" y2="55" stroke="#0a5c6e" stroke-width="1.2" opacity=".7"/>
+      <line id="gd-h2" x1="36" y1="121" x2="180" y2="121" stroke="#0a5c6e" stroke-width="1.2" opacity=".7"/>
+      <path id="gd-m1" d="M 108,16 Q 50,88 108,160" stroke="#0a5c6e" stroke-width="1.2" opacity=".7" fill="none"/>
+      <path id="gd-m2" d="M 108,16 Q 166,88 108,160" stroke="#0a5c6e" stroke-width="1.2" opacity=".7" fill="none"/>
+      <line id="gd-h3" x1="36" y1="28" x2="180" y2="28" stroke="#0a5c6e" stroke-width="1" opacity=".45"/>
+      <line id="gd-h4" x1="36" y1="148" x2="180" y2="148" stroke="#0a5c6e" stroke-width="1" opacity=".45"/>
+    </g>
+
+    <!-- Shield white fill (masks globe lines behind it) -->
+    <path id="gd-shield-bg" d="M 168,118 L 245,118 L 245,166 C 245,188 206,202 206,202 C 206,202 168,188 168,166 Z" fill="white"/>
+    <!-- Shield border -->
+    <path id="gd-shield-path" d="M 168,118 L 245,118 L 245,166 C 245,188 206,202 206,202 C 206,202 168,188 168,166 Z" stroke="#0a5c6e" stroke-width="2.5" fill="none"/>
+    <!-- Checkmark -->
+    <path id="gd-check" d="M 182,163 L 198,180 L 230,148" stroke="#0a5c6e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+  <span id="pp-capline"></span>
+  <p id="pp-cap">Regulatory disclosures.</p>
+  <p id="pp-sub">Lam Richter Corporation.</p>
+</div>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div id="corner-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="68" font-family="Georgia,serif" font-size="44" font-style="italic" fill="white" text-anchor="middle">K&amp;L</text></svg></div>
+
+<!-- NAV -->
+<nav class="snav" id="main-nav">
+  <a href="index.html" style="text-decoration:none">
+    <span class="nav-logo-main">Lam Richter Corporation.</span>
+    <span class="nav-logo-sub">Real Estate Investment &amp; Advisory</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#l-about">About</a></li>
+    <li><a href="index.html#l-serve">Who We Serve</a></li>
+    <li><a href="index.html#l-leadership">Leadership</a></li>
+    <li><a href="index.html#l-insights">Insights</a></li>
+    <li><a href="index.html#l-contact">Contact</a></li>
+    <li><a href="privacy.html" class="nav-pill">Privacy</a></li>
+    <li><a href="login.html" class="nav-pill">Staff Login</a></li>
+  </ul>
+  <button class="nav-hamburger" id="ham"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mob-menu">
+  <a href="index.html#l-about">About</a>
+  <a href="index.html#l-serve">Who We Serve</a>
+  <a href="index.html#l-leadership">Leadership</a>
+  <a href="index.html#l-insights">Insights</a>
+  <a href="index.html#l-contact">Contact</a>
+  <a href="privacy.html" class="mob-link mob-small">Privacy</a>
+  <a href="login.html" class="mob-link mob-small">Staff Login</a>
+</div>
+
+<!-- HERO -->
+<section class="pp-hero">
+  <div class="hero-letter-left"></div>
+  <div class="hero-letter">RD</div>
+  <span class="hero-eyebrow">// Legal &middot; Lamrichter.com</span>
+  <h1>Regulatory &amp; our<br/><em>disclosures.</em></h1>
+  <div class="hero-rule"></div>
+  <span class="pp-date">Effective &mdash; April 26, 2026</span>
+  <p class="pp-lede">Lam Richter Corporation is committed to transparency in all of its communications. The following disclosures govern the use of this website and describe the nature of our advisory activities, the limitations of our communications, and your rights as a visitor.</p>
+</section>
+
+<!-- DISCLOSURE SECTIONS -->
+<div class="pp-body">
+  <span class="sec-lbl">// Regulatory Disclosures</span>
+
+  <div class="pp-grid">
+
+    <!-- I -->
+    <div class="pp-card reveal">
+      <span class="pp-num">I.</span>
+      <div class="pp-card-title">General Disclaimer</div>
+      <div class="pp-card-body">
+        <p>The information contained on this website is provided for informational purposes only and does not constitute legal, tax, financial, or investment advice of any kind.</p>
+        <p>Visitors should consult qualified legal, tax, and financial professionals before making any investment decision. Lam Richter Corporation assumes no liability for reliance on the materials published here.</p>
+      </div>
+    </div>
+
+    <!-- II -->
+    <div class="pp-card reveal">
+      <span class="pp-num">II.</span>
+      <div class="pp-card-title">Investment Risk</div>
+      <div class="pp-card-body">
+        <p>Real estate investments involve significant risk, including the possible loss of principal. Past performance is not indicative of future results.</p>
+        <ul class="pp-list">
+          <li>Property values can decline due to market, economic, or environmental conditions</li>
+          <li>Liquidity in real estate is limited — investments may not be readily convertible to cash</li>
+          <li>Returns are not guaranteed and depend on numerous factors outside the firm's control</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- III -->
+    <div class="pp-card reveal">
+      <span class="pp-num">III.</span>
+      <div class="pp-card-title">No Securities Offering</div>
+      <div class="pp-card-body">
+        <p>Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, or a recommendation of any security or investment product.</p>
+        <p>Any offering of securities will be made only through formal offering documents prepared in accordance with applicable federal and state securities laws, which will contain important information about risks, fees, and restrictions.</p>
+      </div>
+    </div>
+
+    <!-- IV -->
+    <div class="pp-card reveal">
+      <span class="pp-num">IV.</span>
+      <div class="pp-card-title">Regulatory Compliance</div>
+      <div class="pp-card-body">
+        <p>Lam Richter Corporation operates subject to applicable federal and state regulations governing real estate investment advisory activities.</p>
+        <ul class="pp-list">
+          <li>Advisory services are provided in compliance with applicable law in each jurisdiction where the firm operates</li>
+          <li>We are not a registered broker-dealer or investment adviser under federal securities law unless separately disclosed</li>
+          <li>Regulatory status varies by jurisdiction and service type</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- V -->
+    <div class="pp-card reveal">
+      <span class="pp-num">V.</span>
+      <div class="pp-card-title">Forward-Looking Statements</div>
+      <div class="pp-card-body">
+        <p>Certain statements on this website may constitute forward-looking statements, including projections, forecasts, or descriptions of anticipated market conditions.</p>
+        <p>These statements are based on current expectations and assumptions and are subject to known and unknown risks. Actual results may differ materially. Lam Richter assumes no obligation to update forward-looking statements after the date of publication.</p>
+      </div>
+    </div>
+
+    <!-- VI -->
+    <div class="pp-card reveal">
+      <span class="pp-num">VI.</span>
+      <div class="pp-card-title">Conflicts of Interest</div>
+      <div class="pp-card-body">
+        <p>Lam Richter Corporation and its principals may hold proprietary interests in certain transactions, assets, or opportunities presented to clients.</p>
+        <ul class="pp-list">
+          <li>Material conflicts of interest are disclosed to affected parties in writing prior to engagement</li>
+          <li>The firm has adopted policies and procedures designed to manage and mitigate conflicts</li>
+          <li>Clients are encouraged to inquire about any potential conflict prior to engaging our services</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VII -->
+    <div class="pp-card reveal">
+      <span class="pp-num">VII.</span>
+      <div class="pp-card-title">Limitation of Liability</div>
+      <div class="pp-card-body">
+        <p>This website and its contents are provided on an "as-is" basis without warranties of any kind, express or implied, including warranties of accuracy, completeness, or fitness for a particular purpose.</p>
+        <p>To the fullest extent permitted by law, Lam Richter Corporation shall not be liable for any direct, indirect, incidental, or consequential damages arising from use of or reliance on the information presented herein.</p>
+      </div>
+    </div>
+
+    <!-- VIII -->
+    <div class="pp-card reveal">
+      <span class="pp-num">VIII.</span>
+      <div class="pp-card-title">Governing Law</div>
+      <div class="pp-card-body">
+        <p>These disclosures and all matters relating to this website shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of law provisions.</p>
+        <p>Any dispute arising under or in connection with these disclosures shall be subject to the exclusive jurisdiction of the courts located in New York County, New York.</p>
+      </div>
+    </div>
+
+    <!-- IX — wide -->
+    <div class="pp-card pp-card-wide reveal">
+      <span class="pp-num">IX.</span>
+      <div class="pp-card-title">Disclosure Inquiries</div>
+      <div class="pp-card-body">
+        <p>For questions or concerns related to these regulatory disclosures, compliance matters, or the nature of our advisory services, please contact our Chief Legal Officer:</p>
+        <ul class="pp-list" style="margin-top:14px">
+          <li><strong>Saoirse Allister, CLO</strong> &mdash; <a href="https://mail.google.com/mail/?view=cm&to=saoirse.allister@lamrichter.com" target="_blank" style="color:var(--teal);text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">saoirse.allister@lamrichter.com</a></li>
+          <li><strong>Office</strong> &mdash; 730 3rd Avenue, 20th Floor, New York, NY 10017</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT STRIP -->
+<div class="pp-contact reveal">
+  <div class="pp-contact-left">
+    <span class="pp-contact-eyebrow">// Compliance &amp; Inquiries</span>
+    <div class="pp-contact-title">We're transparent,<br/>always.</div>
+    <p class="pp-contact-body">For questions about these disclosures or our compliance posture, our legal team is available and responds within one business day.</p>
+  </div>
+  <div class="pp-contact-right">
+    <a href="https://mail.google.com/mail/?view=cm&to=saoirse.allister@lamrichter.com" class="pp-contact-email" target="_blank" rel="noopener noreferrer">saoirse.allister@lamrichter.com &nbsp;&#8594;</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="sfoot">
+  <div><span class="ft-name">Lam Richter Corporation</span><span class="ft-tag">Real Estate Investment &amp; Advisory</span></div>
+  <p class="ft-copy">&#169; 2026 &middot; All Rights Reserved<br/>Real estate advisory services subject to regulatory oversight.</p>
+  <div class="ft-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclosures.html" class="active">Disclosures</a>
+    <a href="login.html">Staff Login &#8594;</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // CURSOR
+  var dot=document.getElementById('cur');
+  var ring=document.getElementById('cur-ring');
+  var mx=-100,my=-100,rx=-100,ry=-100;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+  });
+  (function tick(){
+    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(tick);
+  })();
+
+  // NAV SCROLL
+  var nav=document.getElementById('main-nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>40);
+  });
+
+  // HAMBURGER
+  var ham=document.getElementById('ham');
+  var mob=document.getElementById('mob-menu');
+  ham.addEventListener('click',function(){
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+  mob.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+    });
+  });
+
+  // ENTRY SPLASH
+  var splash=document.getElementById('pp-splash');
+  if(splash){
+    dot.style.opacity='0';
+    ring.style.opacity='0';
+    setTimeout(function(){splash.classList.add('gone');},4200);
+    setTimeout(function(){
+      if(splash.parentNode)splash.parentNode.removeChild(splash);
+      dot.style.opacity='';
+      ring.style.opacity='';
+    },5000);
+  }
+
+  // REVEAL ON SCROLL
+  var els=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
